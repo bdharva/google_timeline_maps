@@ -5,7 +5,7 @@ _*INCOMPLETE: PUSHED TO START TO PREVIEW HOW THINGS LOOK.*_
 
 While this started out as a very hacky personal project to map my own data, once I shared [some of my visualizations](https://www.instagram.com/p/Bsl9pEoH_rf/) I started getting requests from friends wanting to make their own. While it's still hacky, this is a rough first pass at streamlining my workflow for more general use. I've listed a few ideas for future development at the bottom of this page. Feel free to use [https://github.com/bdharva/google_timeline_maps/issues](https://github.com/bdharva/google_timeline_maps/issues) to suggest additional updates and flag any bugs you encounter.
 
-![Sample visualization](assets/hero.png?raw=true)
+![Sample visualization](data/assets/hero.png?raw=true)
 
 ## Setup
 
