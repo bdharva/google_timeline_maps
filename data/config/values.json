@@ -1,0 +1,171 @@
+{
+	"map_views": {
+		"usa": {
+			"title": "United States of America",
+			"latitude": 36.890,
+			"longitude": -95.867,
+			"zoom": 4,
+			"file": "usa"
+		},
+		"eur": {
+			"title": "Europe",
+			"latitude": 50.9375,
+			"longitude": 6.9603,
+			"zoom": 5,
+			"file": "eur"
+		},
+		"nyc": {
+			"title": "New York, NY",
+			"latitude": 40.74,
+			"longitude": -73.99,
+			"zoom": 13,
+			"file": "nyc"
+		},
+		"cdg": {
+			"title": "Paris, France",
+			"latitude": 48.86,
+			"longitude": 2.31,
+			"zoom": 13,
+			"file": "cdg"
+		},
+		"muc": {
+			"title": "Munich, Germany",
+			"latitude": 48.1351,
+			"longitude": 11.60,
+			"zoom": 13,
+			"file": "muc"
+		},
+		"ber": {
+			"title": "Berlin, Germany",
+			"latitude": 52.51,
+			"longitude": 13.37,
+			"zoom": 13,
+			"file": "ber"
+		},
+		"bos": {
+			"title": "Boston, MA",
+			"latitude": 42.36,
+			"longitude": -71.06,
+			"zoom": 13,
+			"file": "bos"
+		},
+		"qnz": {
+			"title": "Quincy, MA",
+			"latitude": 42.25,
+			"longitude": -71.00,
+			"zoom": 13,
+			"file": "qnz"
+		},
+		"lax": {
+			"title": "Santa Monica, CA",
+			"latitude": 34.01,
+			"longitude": -118.46,
+			"zoom": 13,
+			"file": "lax"
+		},
+		"hnl": {
+			"title": "Oahu, HI",
+			"latitude": 21.47,
+			"longitude": -157.85,
+			"zoom": 11,
+			"file": "hnl"
+		},
+		"ord": {
+			"title": "Chicago, IL",
+			"latitude": 41.89,
+			"longitude": -87.64,
+			"zoom": 13,
+			"file": "ord"
+		},
+		"syk": {
+			"title": "Sykesville, MD",
+			"latitude": 39.40,
+			"longitude": -76.995,
+			"zoom": 13,
+			"file": "syk"
+		},
+		"znp": {
+			"title": "Zion National Park, UT",
+			"latitude": 37.27,
+			"longitude": -113.05,
+			"zoom": 11,
+			"file": "znp"
+		},
+		"sfo": {
+			"title": "Palo Alto, CA",
+			"latitude": 37.46,
+			"longitude": -122.165,
+			"zoom": 13,
+			"file": "sfo"
+		},
+		"ver": {
+			"title": "Verona, WI",
+			"latitude": 43.005,
+			"longitude": -89.515,
+			"zoom": 13,
+			"file": "ver"
+		},
+		"aus": {
+			"title": "Austin, TX",
+			"latitude": 30.2672,
+			"longitude": -97.81,
+			"zoom": 11,
+			"file": "aus"
+		},
+		"eph": {
+			"title": "Door County, WI",
+			"latitude": 45.155,
+			"longitude": -87.117,
+			"zoom": 11,
+			"file": "eph"
+		}
+	},
+	"user_settings": {
+		"dimensions": {
+			"title": "Map Export Dimensions",
+			"width": 1200,
+			"height": 800
+		},
+		"tint": {
+			"title": "Base Map Tint",
+			"red": 40,
+			"green": 50,
+			"blue": 60,
+			"enabled": true
+		},
+		"point": {
+			"title": "GPS Point Markers",
+			"red": 255,
+			"green": 255,
+			"blue": 84,
+			"alpha": 20,
+			"size": 5,
+			"enabled": true
+		},
+		"connector": {
+			"title": "GPS Point Connectors",
+			"red": 50,
+			"green": 200,
+			"blue": 100,
+			"alpha": 20,
+			"size": 1,
+			"enabled": true
+		},
+		"title": {
+			"title": "Map Title Overlay",
+			"red": 255,
+			"green": 255,
+			"blue": 255,
+			"alpha": 200,
+			"enabled": true
+		},
+		"subtitle": {
+			"title": "Map Sub-Title Overlay",
+			"red": 255,
+			"green": 255,
+			"blue": 255,
+			"alpha": 200,
+			"enabled": true
+		}
+	}
+}
