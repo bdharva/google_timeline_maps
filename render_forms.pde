@@ -1,6 +1,6 @@
 void render_ui(String s, String m) {
   
-  if (s.equals("map_views") || s.equals("settings")) {
+  if (s.equals("map_views") || s.equals("user_settings")) {
     
     background(c_form_background);
     fill(c_form_active_text);
@@ -10,12 +10,13 @@ void render_ui(String s, String m) {
     text(s + " " + str(view_index + 1) + " of " + str(config_values.getJSONObject(s).size()), width - margin, margin);
     
     JSONObject fields = config_forms.getJSONObject(s).getJSONObject("fields");
-    String[] properties = list_keys(view); 
-    render_fields(fields, view, properties, m);
+    JSONArray order = config_forms.getJSONObject(s).getJSONArray("field_order");
+    String properties = join(list_keys(view), " "); 
+    render_fields(fields, order, view, properties, m);
     
   } else if (s.equals("map")) {
     
-    //draw_map();
+    draw_map();
     
   } else if (s.equals("data")) {
     
@@ -31,34 +32,47 @@ void render_ui(String s, String m) {
   
 }
 
-void render_fields(JSONObject f, JSONObject v, String[] p, String m) {
+void render_fields(JSONObject f, JSONArray o, JSONObject v, String p, String m) {
 
-  for(int i = 0; i < p.length; i++) {
+  int j = 0;
+  field_lookup = new String[0];
+  type_lookup = new String[0];
+  editable_lookup = new boolean[0];
 
-    String property = p[i];
-    JSONObject field = f.getJSONObject(property);
-    String type = field.getString("type");
-    String value = "";
+  for(int i = 0; i < o.size(); i++) {
 
-    if(type.equals("string")) {
+    if(p.contains(o.getString(i))) {
+    
+      String property = o.getString(i);
+      field_lookup = append(field_lookup, property);
+      JSONObject field = f.getJSONObject(property);
+      String type = field.getString("type");
+      type_lookup = append(type_lookup, type);
+      // TODO: Add editable lookup
+      String value = "";
 
-      value = v.getString(property);
+      if(type.equals("string")) {
 
-    } else if(type.equals("boolean")) {
+        value = v.getString(property);
 
-      value = str(v.getBoolean(property));
+      } else if(type.equals("boolean")) {
 
-    } else if(type.equals("int")) {
+        value = str(v.getBoolean(property));
 
-      value = str(v.getInt(property));
+      } else if(type.equals("int")) {
 
-    } else if(type.equals("float")) {
+        value = str(v.getInt(property));
 
-      value = str(v.getFloat(property));
+      } else if(type.equals("float")) {
+
+        value = str(v.getFloat(property));
+
+      }
+
+      render_field(field, value, j, 2, m);
+      j++;
 
     }
-
-    render_field(field, value, i, 2, m);
     
   }
 

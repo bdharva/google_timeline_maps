@@ -1,6 +1,17 @@
 {
 	"data": {},
-	"settings": {
+	"user_settings": {
+		"field_order": [
+			"title",
+			"width",
+			"height",
+			"red",
+			"green",
+			"blue",
+			"alpha",
+			"size",
+			"enabled"
+		],
 		"fields": {
 			"title": {
 				"type": "string",
@@ -93,6 +104,13 @@
 		}
 	},
 	"map_views": {
+		"field_order": [
+			"title",
+			"latitude",
+			"longitude",
+			"zoom",
+			"file"
+		],
 		"fields": {
 			"title": {
 				"type": "string",

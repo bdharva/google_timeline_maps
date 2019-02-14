@@ -1,32 +1,9 @@
-//void draw_map() {
-//  
-//  // TODO: Load tint
-//  for (int i = 0; i < settings.size(); i++) {
-//    
-//    if(settings.getJSONObject(i).getString("name").equals("tint")) {
-//      
-//      JSONArray fields = settings.getJSONObject(i).getJSONArray("fields");
-//      int r = 0, g = 0, b = 0;
-//      boolean enabled = true;
-//      
-//      for (int j = 0; j < fields.size(); j++) {
-//        
-//        JSONObject field = fields.getJSONObject(j);
-//        if(field.getString("name").equals("enabled")) {
-//          
-//          if(boolean(field.getString("value"))) {
-//            
-//            c_tint = extract_rgb(fields);
-//            tint(c_tint);
-//          }
-//        }
-//      }
-//    }
-//  }
-//  
-//  map.draw();
-//  
-//}
+void draw_map() {
+
+    // TODO: Load tint
+    map.draw();
+ 
+}
 //
 //void draw_data() {
 //  // TODO: Plot shit

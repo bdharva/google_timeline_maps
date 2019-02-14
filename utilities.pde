@@ -98,6 +98,59 @@ JSONObject get_view_values(JSONObject v, int i) {
   
 }
 
+String get_field() {
+
+  String property = field_lookup[field_index];
+  String type = type_lookup[field_index];
+  String value = "";
+
+  if(type.equals("string")) {
+
+    value = view.getString(property);
+
+  } else if(type.equals("boolean")) {
+
+    value = str(view.getBoolean(property));
+
+  } else if(type.equals("int")) {
+
+    value = str(view.getInt(property));
+
+  } else if(type.equals("float")) {
+
+    value = str(view.getFloat(property));
+
+  }
+  
+  return value;
+
+}
+
+void set_field(String s) {
+
+  String property = field_lookup[field_index];
+  String type = type_lookup[field_index];
+
+  if(type.equals("string")) {
+
+    view.setString(property, s);
+
+  } else if(type.equals("boolean")) {
+
+    view.setBoolean(property, boolean(s));
+
+  } else if(type.equals("int")) {
+
+    view.setInt(property, int(s));
+
+  } else if(type.equals("float")) {
+
+    view.setFloat(property, float(s));
+
+  }
+
+}
+
 // TODO: Need to fix for new format
 //void add_view() {
 //  
