@@ -1,5 +1,7 @@
-void implement_settings(JSONObject s, JSONObject u) {
+void implement_settings() {
   
+  JSONObject s = config_settings;
+
   c_form_background = extract_color(s.getJSONObject("form_background"));
   c_form_text = extract_color(s.getJSONObject("form_text"));
   c_form_active_text = extract_color(s.getJSONObject("form_active_text"));
@@ -24,6 +26,12 @@ void implement_settings(JSONObject s, JSONObject u) {
   view_index = s.getJSONObject("defaults").getInt("view");
   field_index = s.getJSONObject("defaults").getInt("field");
   frameRate(s.getJSONObject("defaults").getInt("rate"));
+  
+}
+
+void implement_user_settings() {
+  
+  JSONObject u = config_values.getJSONObject("user_settings");
 
   c_tint = extract_color(u.getJSONObject("tint"));
   c_point = extract_color(u.getJSONObject("point"));
@@ -84,10 +92,9 @@ void initialize_markers (JSONArray d, SimplePointMarker[] p) {
 
 }
 
-// TODO: Need to call this somewhere
-Float update_step (JSONObject s, int z) {
+void update_step () {
 
-  return s.getJSONObject("map_movement").getFloat(str(z));
+  step = config_settings.getJSONObject("map_movement").getFloat(str(view.getInt("zoom")));
 
 }
 

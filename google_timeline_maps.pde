@@ -1,5 +1,3 @@
-// Test comment block
-
 import java.util.Iterator;
 import de.fhpotsdam.unfolding.*;
 import de.fhpotsdam.unfolding.geo.*;
@@ -25,10 +23,12 @@ void setup() {
   config_forms = loadJSONObject("data/config/forms.json");
   config_values = loadJSONObject("data/config/values.json");
   config_settings = loadJSONObject("data/config/settings.json");
-  implement_settings(config_settings, config_values.getJSONObject("user_settings"));
+  implement_settings();
+  implement_user_settings();
   
   map = new UnfoldingMap(this, new Microsoft.AerialProvider());
   view = get_view_values(config_values.getJSONObject(state), view_index);
+  update_step();
 
   map.zoomAndPanTo(new Location(view.getFloat("latitude"), view.getFloat("longitude")), view.getInt("zoom"));
 

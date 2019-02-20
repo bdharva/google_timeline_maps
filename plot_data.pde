@@ -1,6 +1,6 @@
 void draw_map() {
 
-    // TODO: Load tint
+    tint(c_tint);
     map.draw();
  
 }

@@ -15,6 +15,12 @@ void keyPressed() {
 
       }
 
+    } else if (state.equals("map")) {
+
+      view.setFloat("longitude", view.getFloat("longitude") - step);
+      update_step();
+      map.zoomAndPanTo(new Location(view.getFloat("latitude"), view.getFloat("longitude")), view.getInt("zoom"));
+      
     }
 
   } else if (keyCode == RIGHT) {
@@ -32,6 +38,32 @@ void keyPressed() {
 
       }
 
+    } else if (state.equals("map")) {
+
+      view.setFloat("longitude", view.getFloat("longitude") + step);
+      update_step();
+      map.zoomAndPanTo(new Location(view.getFloat("latitude"), view.getFloat("longitude")), view.getInt("zoom"));
+
+    }
+
+  } else if (keyCode == UP) {
+
+    if (state.equals("map")) {
+
+      view.setFloat("latitude", view.getFloat("latitude") + step);
+      update_step();
+      map.zoomAndPanTo(new Location(view.getFloat("latitude"), view.getFloat("longitude")), view.getInt("zoom"));
+
+    }
+
+  } else if (keyCode == DOWN) {
+
+    if (state.equals("map")) {
+
+      view.setFloat("latitude", view.getFloat("latitude") - step);
+      update_step();
+      map.zoomAndPanTo(new Location(view.getFloat("latitude"), view.getFloat("longitude")), view.getInt("zoom"));
+      
     }
 
   } else if (keyCode == ENTER) {
@@ -45,7 +77,7 @@ void keyPressed() {
 
       } else if (mode.equals("edit")) {
 
-        implement_settings(config_settings, config_values.getJSONObject("user_settings"));
+        implement_user_settings();
         //saveJSONObject(config, "data/config/values.json");
         mode = "nav";
 
@@ -55,10 +87,9 @@ void keyPressed() {
 
   } else if (keyCode == BACKSPACE) {
 
-    if (state.equals("map_views")) {
+    if (state.equals("map_views") || state.equals("user_settings")) {
 
-      if (mode.equals("nav")) {
-      } else if (mode.equals("edit")) {
+      if (mode.equals("edit")) {
 
         String edit = get_field();
         
@@ -89,18 +120,23 @@ void keyPressed() {
      
      if (state.equals("map_views")) {
 
+      update_step();
       map.zoomAndPanTo(new Location(view.getFloat("latitude"), view.getFloat("longitude")), view.getInt("zoom"));
       state = "map";
+      mode = "nav";
+
+    } else if (state.equals("map")) {
+
+      state = "map_views";
       mode = "nav";
 
     }
 
   } else if (mode.equals("edit") && (keyCode != SHIFT && keyCode != CONTROL && keyCode != ALT && keyCode != LEFT && keyCode != RIGHT)) {
 
-    if (state.equals("map_views")) {
+    if (state.equals("map_views") || state.equals("user_settings")) {
 
-      if (mode.equals("nav")) {
-      } else if (mode.equals("edit")) {
+      if (mode.equals("edit")) {
 
         String edit = get_field();
 
