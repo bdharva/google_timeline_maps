@@ -66,6 +66,26 @@ void keyPressed() {
       
     }
 
+  } else if ((key == '_' || key == '-') && state.equals("map")) {
+
+    if (state.equals("map") && view.getInt("zoom") > 3) {
+
+      view.setInt("zoom", view.getInt("zoom") - 1);
+      update_step();
+      map.zoomAndPanTo(new Location(view.getFloat("latitude"), view.getFloat("longitude")), view.getInt("zoom"));
+      
+    }
+
+  } else if ((key == '+' || key == '=') && state.equals("map")) {
+
+    if (state.equals("map") && view.getInt("zoom") < 18) {
+
+      view.setInt("zoom", view.getInt("zoom") + 1);
+      update_step();
+      map.zoomAndPanTo(new Location(view.getFloat("latitude"), view.getFloat("longitude")), view.getInt("zoom"));
+      
+    }
+
   } else if (keyCode == ENTER) {
 
     if (state.equals("map_views") || state.equals("user_settings")) {
@@ -115,6 +135,10 @@ void keyPressed() {
     view_index = 0;
     state = "map_views";
     view = get_view_values(config_values.getJSONObject(state), view_index);
+
+  } else if (((key == 'G' || key == 'g')) && mode.equals("nav")) {
+
+    show_guides = !show_guides;
 
   } else if (key == 'M' || key == 'm') {
      
