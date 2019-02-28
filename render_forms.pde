@@ -37,7 +37,7 @@ void render_fields(JSONObject f, JSONArray o, JSONObject v, String p, String m) 
   int j = 0;
   field_lookup = new String[0];
   type_lookup = new String[0];
-  editable_lookup = new boolean[0];
+  editable_lookup = new String[0];
 
   for(int i = 0; i < o.size(); i++) {
 
@@ -48,27 +48,9 @@ void render_fields(JSONObject f, JSONArray o, JSONObject v, String p, String m) 
       JSONObject field = f.getJSONObject(property);
       String type = field.getString("type");
       type_lookup = append(type_lookup, type);
-      // TODO: Add editable lookup
-      String value = "";
-
-      if(type.equals("string")) {
-
-        value = v.getString(property);
-
-      } else if(type.equals("boolean")) {
-
-        value = str(v.getBoolean(property));
-
-      } else if(type.equals("int")) {
-
-        value = str(v.getInt(property));
-
-      } else if(type.equals("float")) {
-
-        value = str(v.getFloat(property));
-
-      }
-
+      String is_editable = field.getString("editable");
+      editable_lookup = append(editable_lookup, is_editable);
+      String value = v.getString(property);
       render_field(field, value, j, 2, m);
       j++;
 
@@ -90,8 +72,6 @@ void render_field(JSONObject f, String v, int i, int c, String m) {
 
   textFont(bodyFont);
   textAlign(LEFT, CENTER);
-  
-  println(field_index + " : " + i + " // " + m);
 
   if (m.equals("edit") && field_index == i) {
     

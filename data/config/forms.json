@@ -17,55 +17,55 @@
 				"type": "string",
 				"label": "",
 				"helper": "",
-				"editable": false
+				"editable": "false"
 			},
 			"width": {
 				"type": "int",
 				"label": "Width",
 				"helper": "px",
-				"editable": true
+				"editable": "true"
 			},
 			"height": {
 				"type": "int",
 				"label": "Height",
 				"helper": "px",
-				"editable": true
+				"editable": "true"
 			},
 			"red": {
 				"type": "int",
 				"label": "Red",
 				"helper": "0-255",
-				"editable": true
+				"editable": "true"
 			},
 			"green": {
 				"type": "int",
 				"label": "Green",
 				"helper": "0-255",
-				"editable": true
+				"editable": "true"
 			},
 			"blue": {
 				"type": "int",
 				"label": "Blue",
 				"helper": "0-255",
-				"editable": true
+				"editable": "true"
 			},
 			"alpha": {
 				"type": "int",
 				"label": "Alpha",
 				"helper": "0-255",
-				"editable": true
+				"editable": "true"
 			},
 			"size": {
 				"type": "int",
 				"label": "Marker Thickness",
 				"helper": "px",
-				"editable": true
+				"editable": "true"
 			},
 			"enabled": {
 				"type": "boolean",
 				"label": "Enabled",
 				"helper": "True/False",
-				"editable": true
+				"editable": "true"
 			}
 		},
 		"guides": {
@@ -75,7 +75,7 @@
 					"text": "Switch to views"
 				},
 				{
-					"icon": "↲",
+					"icon": "ENT",
 					"text": "Edit current entry"
 				},
 				{
@@ -89,7 +89,7 @@
 			],
 			"edit": [
 				{
-					"icon": "↲",
+					"icon": "ENT",
 					"text": "Save edits"
 				},
 				{
@@ -116,31 +116,31 @@
 				"type": "string",
 				"label": "Title",
 				"helper": "(To be displayed on map)",
-				"editable": true
+				"editable": "true"
 			},
 			"latitude": {
 				"type": "float",
 				"label": "Latitude",
 				"helper": "degrees",
-				"editable": true
+				"editable": "true"
 			},
 			"longitude": {
 				"type": "float",
 				"label": "Longitude",
 				"helper": "degrees",
-				"editable": true
+				"editable": "true"
 			},
 			"zoom": {
 				"type": "int",
 				"label": "Zoom",
 				"helper": "3-18",
-				"editable": true
+				"editable": "true"
 			},
 			"file": {
 				"type": "string",
 				"label": "Export As",
 				"helper": ".jpg",
-				"editable": true
+				"editable": "true"
 			}
 		},
 		"guides": {
@@ -150,7 +150,7 @@
 					"text": "Switch to settings"
 				},
 				{
-					"icon": "↲",
+					"icon": "ENT",
 					"text": "Edit current entry"
 				},
 				{
@@ -176,7 +176,7 @@
 			],
 			"edit": [
 				{
-					"icon": "↲",
+					"icon": "ENT",
 					"text": "Save edits"
 				},
 				{

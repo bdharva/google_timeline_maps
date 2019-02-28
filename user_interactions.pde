@@ -13,11 +13,17 @@ void keyPressed() {
 
         field_index = field_index > 0 ? field_index - 1 : field_lookup.length - 1;
 
+        while (!boolean(editable_lookup[field_index])) {
+        
+          field_index = field_index > 0 ? field_index - 1 : field_lookup.length - 1;
+
+        }
+
       }
 
     } else if (state.equals("map")) {
 
-      view.setFloat("longitude", view.getFloat("longitude") - step);
+      view.setString("longitude", str(view.getFloat("longitude") - step));
       update_step();
       map.zoomAndPanTo(new Location(view.getFloat("latitude"), view.getFloat("longitude")), view.getInt("zoom"));
       
@@ -36,11 +42,17 @@ void keyPressed() {
 
         field_index = field_index < (field_lookup.length - 1) ? field_index + 1 : 0;
 
+        while (!boolean(editable_lookup[field_index])) {
+
+          field_index = field_index < (field_lookup.length - 1) ? field_index + 1 : 0;
+
+        }
+
       }
 
     } else if (state.equals("map")) {
 
-      view.setFloat("longitude", view.getFloat("longitude") + step);
+      view.setString("longitude", str(view.getFloat("longitude") + step));
       update_step();
       map.zoomAndPanTo(new Location(view.getFloat("latitude"), view.getFloat("longitude")), view.getInt("zoom"));
 
@@ -50,7 +62,7 @@ void keyPressed() {
 
     if (state.equals("map")) {
 
-      view.setFloat("latitude", view.getFloat("latitude") + step);
+      view.setString("latitude", str(view.getFloat("latitude") + step));
       update_step();
       map.zoomAndPanTo(new Location(view.getFloat("latitude"), view.getFloat("longitude")), view.getInt("zoom"));
 
@@ -60,7 +72,7 @@ void keyPressed() {
 
     if (state.equals("map")) {
 
-      view.setFloat("latitude", view.getFloat("latitude") - step);
+      view.setString("latitude", str(view.getFloat("latitude") - step));
       update_step();
       map.zoomAndPanTo(new Location(view.getFloat("latitude"), view.getFloat("longitude")), view.getInt("zoom"));
       
@@ -70,7 +82,7 @@ void keyPressed() {
 
     if (state.equals("map") && view.getInt("zoom") > 3) {
 
-      view.setInt("zoom", view.getInt("zoom") - 1);
+      view.setString("zoom", str(view.getInt("zoom") - 1));
       update_step();
       map.zoomAndPanTo(new Location(view.getFloat("latitude"), view.getFloat("longitude")), view.getInt("zoom"));
       
@@ -80,7 +92,7 @@ void keyPressed() {
 
     if (state.equals("map") && view.getInt("zoom") < 18) {
 
-      view.setInt("zoom", view.getInt("zoom") + 1);
+      view.setString("zoom", str(view.getInt("zoom") + 1));
       update_step();
       map.zoomAndPanTo(new Location(view.getFloat("latitude"), view.getFloat("longitude")), view.getInt("zoom"));
       
@@ -94,6 +106,12 @@ void keyPressed() {
 
         mode = "edit";
         field_index = 0;
+
+        while (!boolean(editable_lookup[field_index])) {
+
+          field_index = field_index < (field_lookup.length - 1) ? field_index + 1 : 0;
+
+        }
 
       } else if (mode.equals("edit")) {
 
@@ -124,11 +142,45 @@ void keyPressed() {
     }
 
   } else if (keyCode == DELETE) {
+
+    // JSONObject field = settings.getJSONObject(view_index).getJSONArray("fields").getJSONObject(field_index);
+    // field.setString("value", "");
+
+  } else if ((key == 'D' || key == 'd') && state.equals("map_views")) {
+
+    // if (views.size() > 1) {
+
+    //   views.remove(view_index);
+    //   view_index = view_index < (views.size() - 1) ? view_index : view_index - 1;
+
+    // } else {
+
+    //   add_view();
+    //   views.remove(view_index);
+
+    // }
+
+    //   view = get_view_values(views, view_index);
+    //   map.zoomAndPanTo(new Location(view.getFloat("latitude"), view.getFloat("longitude")), view.getInt("zoom"));
+    //   saveJSONObject(config, "data/config/test.json");
+
+  } else if ((key == 'N' || key == 'n') && state.equals("map_views")) {
+
+    // add_view();
+    // view_index = views.size() - 1;
+    // view = get_view_values(views, view_index);
+    // map.zoomAndPanTo(new Location(view.getFloat("latitude"), view.getFloat("longitude")), view.getInt("zoom"));
+    // mode = "edit";
+
   } else if (((key == 'S' || key == 's')) && state.equals("map_views") && mode.equals("nav")) {
 
     view_index = 0;
     state = "user_settings";
     view = get_view_values(config_values.getJSONObject(state), view_index);
+
+  } else if (((key == 'P' || key == 'p')) && state.equals("map_views") && mode.equals("nav")) {
+
+    // state = plot, call draw data OR state = map, loop()
 
   } else if (((key == 'V' || key == 'v')) && state.equals("user_settings") && mode.equals("nav")) {
 

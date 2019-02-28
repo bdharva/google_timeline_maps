@@ -14,18 +14,18 @@ void implement_settings() {
   guideFont = createFont("data/fonts/Inter-UI-Medium.ttf", 14, true);
   // TODO: Handle dimensions & text sizes
   extension = s.getJSONObject("export").getString("extension");
-  button = s.getJSONObject("form_guide").getInt("size");
-  cursor_offset = s.getJSONObject("form_cursor").getInt("offset");
-  cursor_height = s.getJSONObject("form_cursor").getInt("height");
-  cursor_width = s.getJSONObject("form_cursor").getInt("width");
-  margin = s.getJSONObject("form_layout").getInt("margin");
-  padding = s.getJSONObject("form_layout").getInt("padding");
+  button = int(s.getJSONObject("form_guide").getString("size"));
+  cursor_offset = int(s.getJSONObject("form_cursor").getString("offset"));
+  cursor_height = int(s.getJSONObject("form_cursor").getString("height"));
+  cursor_width = int(s.getJSONObject("form_cursor").getString("width"));
+  margin = int(s.getJSONObject("form_layout").getString("margin"));
+  padding = int(s.getJSONObject("form_layout").getString("padding"));
   state = s.getJSONObject("defaults").getString("state");
   mode = s.getJSONObject("defaults").getString("mode");
-  show_guides = s.getJSONObject("defaults").getBoolean("guides");
-  view_index = s.getJSONObject("defaults").getInt("view");
-  field_index = s.getJSONObject("defaults").getInt("field");
-  frameRate(s.getJSONObject("defaults").getInt("rate"));
+  show_guides = boolean(s.getJSONObject("defaults").getString("guides"));
+  view_index = int(s.getJSONObject("defaults").getString("view"));
+  field_index = int(s.getJSONObject("defaults").getString("field"));
+  frameRate(int(s.getJSONObject("defaults").getString("rate")));
   
 }
 
@@ -69,11 +69,11 @@ color extract_color (JSONObject c) {
   
   if (has_alpha) {
 
-    return color(c.getInt("red"), c.getInt("green"), c.getInt("blue"), c.getInt("alpha"));
+    return color(int(c.getString("red")), int(c.getString("green")), int(c.getString("blue")), int(c.getString("alpha")));
 
   } else {
 
-    return color(c.getInt("red"), c.getInt("green"), c.getInt("blue"));
+    return color(int(c.getString("red")), int(c.getString("green")), int(c.getString("blue")));
 
   }
   
@@ -108,53 +108,14 @@ JSONObject get_view_values(JSONObject v, int i) {
 String get_field() {
 
   String property = field_lookup[field_index];
-  String type = type_lookup[field_index];
-  String value = "";
-
-  if(type.equals("string")) {
-
-    value = view.getString(property);
-
-  } else if(type.equals("boolean")) {
-
-    value = str(view.getBoolean(property));
-
-  } else if(type.equals("int")) {
-
-    value = str(view.getInt(property));
-
-  } else if(type.equals("float")) {
-
-    value = str(view.getFloat(property));
-
-  }
-  
-  return value;
+  return view.getString(property);
 
 }
 
 void set_field(String s) {
 
   String property = field_lookup[field_index];
-  String type = type_lookup[field_index];
-
-  if(type.equals("string")) {
-
-    view.setString(property, s);
-
-  } else if(type.equals("boolean")) {
-
-    view.setBoolean(property, boolean(s));
-
-  } else if(type.equals("int")) {
-
-    view.setInt(property, int(s));
-
-  } else if(type.equals("float")) {
-
-    view.setFloat(property, float(s));
-
-  }
+  view.setString(property, s);
 
 }
 

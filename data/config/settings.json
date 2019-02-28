@@ -1,68 +1,68 @@
 {
 	"dimensions": {
-		"width": 1200,
-		"height": 800
+		"width": "1200",
+		"height": "800"
 	},
 	"form_background": {
-		"red": 250,
-		"green": 250,
-		"blue": 250
+		"red": "250",
+		"green": "250",
+		"blue": "250"
 	},
 	"form_text": {
-		"red": 200,
-		"green": 200,
-		"blue": 200,
-		"size": 16
+		"red": "200",
+		"green": "200",
+		"blue": "200",
+		"size": "16"
 	},
 	"form_active_text": {
-		"red": 100,
-		"green": 100,
-		"blue": 100,
-		"size": 16
+		"red": "100",
+		"green": "100",
+		"blue": "100",
+		"size": "16"
 	},
 	"form_highlight": {
-		"red": 0,
-		"green": 200,
-		"blue": 50
+		"red": "0",
+		"green": "200",
+		"blue": "50"
 	},
 	"form_cursor": {
-		"offset": 1,
-		"height": 20,
-		"width": 2
+		"offset": "1",
+		"height": "20",
+		"width": "2"
 	},
 	"form_layout": {
-		"margin": 40,
-		"padding": 20
+		"margin": "40",
+		"padding": "20"
 	},
 	"form_guide": {
-		"red": 200,
-		"green": 200,
-		"blue": 200,
-		"size": 30
+		"red": "200",
+		"green": "200",
+		"blue": "200",
+		"size": "30"
 	},
 	"map_guide": {
-		"red": 255,
-		"green": 255,
-		"blue": 255,
-		"size": 30
+		"red": "255",
+		"green": "255",
+		"blue": "255",
+		"size": "30"
 	},
 	"map_movement": {
-		"3": 10,
-		"4": 1,
-		"5": 1,
-		"6": 1,
-		"7": 1,
-		"8": 1,
-		"9": 0.1,
-		"10": 0.1,
-		"11": 0.1,
-		"12": 0.1,
-		"13": 0.01,
-		"14": 0.01,
-		"15": 0.01,
-		"16": 0.001,
-		"17": 0.001,
-		"18": 0.0001
+		"3": "10",
+		"4": "1",
+		"5": "1",
+		"6": "1",
+		"7": "1",
+		"8": "1",
+		"9": "0.1",
+		"10": "0.1",
+		"11": "0.1",
+		"12": "0.1",
+		"13": "0.01",
+		"14": "0.01",
+		"15": "0.01",
+		"16": "0.001",
+		"17": "0.001",
+		"18": "0.0001"
 	},
 	"export": {
 		"extension": ".jpg"
@@ -70,9 +70,9 @@
 	"defaults": {
 		"state": "map_views",
 		"mode": "nav",
-		"guides": true,
-		"view": 0,
-		"field": 0,
-		"rate": 60
+		"guides": "true",
+		"view": "0",
+		"field": "0",
+		"rate": "60"
 	}
 }
