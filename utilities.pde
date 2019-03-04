@@ -79,13 +79,26 @@ color extract_color (JSONObject c) {
   
 }
 
-void initialize_markers (JSONArray d, SimplePointMarker[] p) {
+//void initialize_markers (JSONArray d, SimplePointMarker[] p) {
+//
+//  for (int i = 0; i < data.size(); i++) {
+//    
+//    JSONObject this_location = d.getJSONObject(i);
+//    float this_latitude = this_location.getInt("latitudeE7") / 1E7;
+//    float this_longitude = this_location.getInt("latitudeE7") / 1E7;
+//    p[i] = new SimplePointMarker(new Location(this_latitude, this_longitude));
+//  
+//  }
+//
+//}
 
-  for (int i = 0; i < data.size(); i++) {
+void initialize_markers (Table d, SimplePointMarker[] p) {
+
+  for (int i = 0; i < data.getRowCount(); i++) {
     
-    JSONObject this_location = d.getJSONObject(i);
-    float this_latitude = this_location.getInt("latitudeE7") / 1E7;
-    float this_longitude = this_location.getInt("latitudeE7") / 1E7;
+    TableRow row = data.getRow(i);
+    Float this_latitude = row.getFloat("latitude");
+    Float this_longitude = row.getFloat("longitude");
     p[i] = new SimplePointMarker(new Location(this_latitude, this_longitude));
   
   }

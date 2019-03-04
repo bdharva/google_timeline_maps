@@ -178,9 +178,20 @@ void keyPressed() {
     state = "user_settings";
     view = get_view_values(config_values.getJSONObject(state), view_index);
 
-  } else if (((key == 'P' || key == 'p')) && state.equals("map_views") && mode.equals("nav")) {
+  } else if (((key == 'P' || key == 'p')) && (state.equals("map") || state.equals("plot"))) {
 
-    // state = plot, call draw data OR state = map, loop()
+    if (state.equals("map")) {
+
+      state = "plot";
+      noLoop();
+      draw_data();
+
+    } else if (state.equals("plot")) {
+
+      state = "map";
+      loop();
+
+    }
 
   } else if (((key == 'V' || key == 'v')) && state.equals("user_settings") && mode.equals("nav")) {
 
