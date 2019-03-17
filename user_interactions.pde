@@ -163,7 +163,7 @@ void keyPressed() {
     map.zoomAndPanTo(new Location(view.getFloat("latitude"), view.getFloat("longitude")), view.getInt("zoom"));
     saveJSONObject(config_values, "data/config/values.json");
 
-  } else if ((key == 'N' || key == 'n') && state.equals("map_views")) {
+  } else if ((key == 'N' || key == 'n') && state.equals("map_views") && mode.equals("nav")) {
 
     add_view();
     view_index = view_index < (config_values.getJSONObject(state).size() - 1) ? view_index + 1 : 0;
