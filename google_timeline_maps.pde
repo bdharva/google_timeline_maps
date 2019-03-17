@@ -21,8 +21,17 @@ void setup() {
 
   frame.setResizable(true);
 
+  if (dataFile("data/config/reference.json").isFile()) {
+    
+    config_values = loadJSONObject("data/config/reference.json");
+    
+  } else {
+    
+    config_values = loadJSONObject("data/config/values.json");
+    
+  }
+
   config_forms = loadJSONObject("data/config/forms.json");
-  config_values = loadJSONObject("data/config/values.json");
   config_settings = loadJSONObject("data/config/settings.json");
   implement_settings();
   implement_user_settings();
