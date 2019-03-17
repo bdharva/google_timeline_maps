@@ -26,7 +26,7 @@
     },
     "subtitle": {
       "enabled": "true",
-      "title": "Map Subtitle Overlay",
+      "title": "Map Sub-Title Overlay",
       "red": "255",
       "blue": "255",
       "green": "255",
@@ -47,41 +47,11 @@
       "size": "1"
     }
   },
-  "map_views": {
-    "201931717160": {
-      "title": "My New View",
-      "file": "mynewview",
-      "zoom": "13",
-      "longitude": "-73.99",
-      "latitude": "40.74"
-    },
-    "2019317171552": {
-      "title": "My New View",
-      "file": "mynewview",
-      "zoom": "13",
-      "longitude": "-73.99",
-      "latitude": "40.74"
-    },
-    "2019317171551": {
-      "title": "",
-      "file": "mynewview",
-      "zoom": "13",
-      "longitude": "-73.99",
-      "latitude": "40.74"
-    },
-    "2019317165936": {
-      "title": "",
-      "file": "mynewview",
-      "zoom": "13",
-      "longitude": "-73.99",
-      "latitude": "40.74"
-    },
-    "2019317171547": {
-      "title": "",
-      "file": "mynewview",
-      "zoom": "13",
-      "longitude": "-73.99",
-      "latitude": "40.74"
-    }
-  }
+  "map_views": {"2019317172210": {
+    "title": "My New View",
+    "zoom": "13",
+    "file": "mynewview",
+    "longitude": "-73.99",
+    "latitude": "40.74"
+  }}
 }
