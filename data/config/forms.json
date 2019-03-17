@@ -71,34 +71,34 @@
 		"guides": {
 			"nav": [
 				{
-					"icon": "V",
-					"text": "Switch to views"
+					"icon": "Ent",
+					"text": "Edit fields"
 				},
 				{
-					"icon": "ENT",
-					"text": "Edit current entry"
+					"icon": "←",
+					"text": "Previous field"
 				},
 				{
 					"icon": "→",
 					"text": "Next field"
 				},
 				{
-					"icon": "←",
-					"text": "Previous field"
+					"icon": "V",
+					"text": "Switch to views"
 				}
 			],
 			"edit": [
 				{
-					"icon": "ENT",
+					"icon": "Ent",
 					"text": "Save edits"
-				},
-				{
-					"icon": "→",
-					"text": "Next field"
 				},
 				{
 					"icon": "←",
 					"text": "Previous field"
+				},
+				{
+					"icon": "→",
+					"text": "Next field"
 				}
 			]
 		}
@@ -146,46 +146,46 @@
 		"guides": {
 			"nav": [
 				{
-					"icon": "S",
-					"text": "Switch to settings"
-				},
-				{
-					"icon": "ENT",
+					"icon": "Ent",
 					"text": "Edit current entry"
 				},
 				{
-					"icon": "M",
-					"text": "Toggle map view"
-				},
-				{
 					"icon": "D",
-					"text": "Delete current entry"
+					"text": "Delete current view"
 				},
 				{
 					"icon": "N",
-					"text": "Create a new entry"
+					"text": "Create new view"
+				},
+				{
+					"icon": "←",
+					"text": "Previous field"
 				},
 				{
 					"icon": "→",
 					"text": "Next field"
 				},
 				{
-					"icon": "←",
-					"text": "Previous field"
+					"icon": "M",
+					"text": "Show/hide map"
+				},
+				{
+					"icon": "S",
+					"text": "Switch to settings"
 				}
 			],
 			"edit": [
 				{
-					"icon": "ENT",
+					"icon": "Ent",
 					"text": "Save edits"
-				},
-				{
-					"icon": "→",
-					"text": "Next field"
 				},
 				{
 					"icon": "←",
 					"text": "Previous field"
+				},
+				{
+					"icon": "→",
+					"text": "Next field"
 				}
 			]
 		}
@@ -193,18 +193,6 @@
 	"map": {
 		"guides": {
 			"nav": [
-				{
-					"icon": "M",
-					"text": "Show/hide map"
-				},
-				{
-					"icon": "P",
-					"text": "Plot data"
-				},
-				{
-					"icon": "G",
-					"text": "Show/hide guides"
-				},
 				{
 					"icon": "↑",
 					"text": "Increase latitude"
@@ -228,16 +216,25 @@
 				{
 					"icon": "-",
 					"text": "Zoom out"
+				},
+				{
+					"icon": "P",
+					"text": "Plot data"
+				},
+				{
+					"icon": "G",
+					"text": "Toggle guides"
+				},
+				{
+					"icon": "M",
+					"text": "Show/hide map"
 				}
+				
 			],
 			"plot": [
 				{
 					"icon": "P",
 					"text": "Unplot data"
-				},
-				{
-					"icon": "G",
-					"text": "Show/hide guides"
 				}
 			]
 		}

@@ -8,19 +8,7 @@ void implement_settings() {
   c_form_highlight = extract_color(s.getJSONObject("form_highlight"));
   c_form_guide = extract_color(s.getJSONObject("form_guide"));
   c_map_guide = extract_color(s.getJSONObject("map_guide"));
-  
-  size(1200, 800, P2D);
 
-  JSONObject f = s.getJSONObject("title_font");
-  title_font = createFont(f.getString("name"), f.getInt("size"), boolean(f.getString("smooth")));
-  f = s.getJSONObject("subtitle_font");
-  subtitle_font = createFont(f.getString("name"), f.getInt("size"), boolean(f.getString("smooth")));
-  f = s.getJSONObject("body_font");
-  body_font = createFont(f.getString("name"), f.getInt("size"), boolean(f.getString("smooth")));
-  f = s.getJSONObject("guide_font");
-  guide_font = createFont(f.getString("name"), f.getInt("size"), boolean(f.getString("smooth")));
-
-  // TODO: Handle dimensions
   extension = s.getJSONObject("export").getString("extension");
   button = int(s.getJSONObject("form_guide").getString("size"));
   cursor_offset = int(s.getJSONObject("form_cursor").getString("offset"));
@@ -34,6 +22,19 @@ void implement_settings() {
   view_index = int(s.getJSONObject("defaults").getString("view"));
   field_index = int(s.getJSONObject("defaults").getString("field"));
   frameRate(int(s.getJSONObject("defaults").getString("rate")));
+  size(s.getJSONObject("dimensions").getInt("width"), s.getJSONObject("dimensions").getInt("height"), P2D);
+
+  JSONObject f = s.getJSONObject("title_font");
+  title_font = createFont(f.getString("name"), f.getInt("size"), boolean(f.getString("smooth")));
+  
+  f = s.getJSONObject("subtitle_font");
+  subtitle_font = createFont(f.getString("name"), f.getInt("size"), boolean(f.getString("smooth")));
+  
+  f = s.getJSONObject("body_font");
+  body_font = createFont(f.getString("name"), f.getInt("size"), boolean(f.getString("smooth")));
+  
+  f = s.getJSONObject("guide_font");
+  guide_font = createFont(f.getString("name"), f.getInt("size"), boolean(f.getString("smooth")));
   
 }
 
@@ -47,7 +48,6 @@ void implement_user_settings() {
   c_title = extract_color(u.getJSONObject("title"));
   c_subtitle = extract_color(u.getJSONObject("subtitle"));
   
-  // TODO: Handle dimensions
   point_diameter = u.getJSONObject("point").getInt("size");
   connector_weight = u.getJSONObject("connector").getInt("size");
   

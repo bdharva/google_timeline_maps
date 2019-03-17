@@ -49,7 +49,7 @@ In Terminal, navigate to the same directory where you've just saved your locatio
 
 Open the `google_timeline_maps.pde` sketch in Processing 2 and launch the sketch with `cmd + r` or by pressing the play icon in the user interface. Depending on the size of the timeline dataset you're loading, it might take a few seconds for the interface to load once you run the sketch.
 
-### Configuring views and mapping data
+### Theory of operation
 
 TODO: Short overview of settings, creating views, navigating map, plotting data, and exporting. All of this should be straightforward enough to figure out using the on-screen guides, so keep it brief.
 
@@ -63,11 +63,14 @@ TODO: Short overview of settings, creating views, navigating map, plotting data,
 
 *	Lack of proper data validation on form inputs; lack of error handling for errors that this can introduce
 *	Can't show/hide guides while plotting data; have to un-plot, hide guides, and re-plot to export clean graphic
+*	Can't pan/zoom map while data is plotted
 *	New views are created in a bullshit random order
+*	Map guide text/icons collide when user-specified export size is too small
 
-### Planned Features/Improvements
+### Future Development
 
 *	Enable users to constrain date range of plotted data directly within program
 *	Remove need for Python transforms; load Google JSON straight into program
+*	Provide as standalone application once all data wrangling is handled in-app
 *	Provide previews of style customizations in settings menu
 *	Enable users to specify alternate map tile providers

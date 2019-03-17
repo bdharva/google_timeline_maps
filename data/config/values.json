@@ -26,16 +26,11 @@
     },
     "subtitle": {
       "enabled": "true",
-      "title": "Map Sub-Title Overlay",
+      "title": "Map Subtitle Overlay",
       "red": "255",
       "blue": "255",
       "green": "255",
       "alpha": "200"
-    },
-    "dimensions": {
-      "title": "Map Export Dimensions",
-      "height": "800",
-      "width": "1200"
     },
     "connector": {
       "enabled": "true",
@@ -45,127 +40,20 @@
       "green": "200",
       "alpha": "20",
       "size": "1"
+    },
+    "dimensions": {
+      "title": "Map Export Dimensions",
+      "height": "800",
+      "width": "1200"
     }
   },
   "map_views": {
-    "lax": {
-      "title": "Santa Monica, CA",
+    "2019317165936": {
+      "title": "My New View",
       "zoom": "13",
-      "file": "lax",
-      "longitude": "-118.46",
-      "latitude": "34.01"
-    },
-    "eph": {
-      "title": "Door County, WI",
-      "zoom": "11",
-      "file": "eph",
-      "longitude": "-87.117",
-      "latitude": "45.155"
-    },
-    "ber": {
-      "title": "Berlin, Germany",
-      "zoom": "13",
-      "file": "ber",
-      "longitude": "13.37",
-      "latitude": "52.51"
-    },
-    "ord": {
-      "title": "Chicago, IL",
-      "zoom": "13",
-      "file": "ord",
-      "longitude": "-87.64",
-      "latitude": "41.89"
-    },
-    "ver": {
-      "title": "Verona, WI",
-      "zoom": "13",
-      "file": "ver",
-      "longitude": "-89.515",
-      "latitude": "43.005"
-    },
-    "nyc": {
-      "title": "New York, NY",
-      "zoom": "13",
-      "file": "nyc",
+      "file": "mynewview",
       "longitude": "-73.99",
       "latitude": "40.74"
-    },
-    "usa": {
-      "title": "United States of America",
-      "zoom": "4",
-      "file": "usa",
-      "longitude": "-95.867",
-      "latitude": "36.890"
-    },
-    "syk": {
-      "title": "Sykesville, MD",
-      "zoom": "13",
-      "file": "syk",
-      "longitude": "-76.995",
-      "latitude": "39.40"
-    },
-    "qnz": {
-      "title": "Quincy, MA",
-      "zoom": "13",
-      "file": "qnz",
-      "longitude": "-71.00",
-      "latitude": "42.25"
-    },
-    "muc": {
-      "title": "Munich, Germany",
-      "zoom": "13",
-      "file": "muc",
-      "longitude": "11.60",
-      "latitude": "48.1351"
-    },
-    "eur": {
-      "title": "Europe",
-      "zoom": "5",
-      "file": "eur",
-      "longitude": "6.9603",
-      "latitude": "50.9375"
-    },
-    "znp": {
-      "title": "Zion National Park, UT",
-      "zoom": "11",
-      "file": "znp",
-      "longitude": "-113.05",
-      "latitude": "37.27"
-    },
-    "hnl": {
-      "title": "Oahu, HI",
-      "zoom": "11",
-      "file": "hnl",
-      "longitude": "-157.85",
-      "latitude": "21.47"
-    },
-    "bos": {
-      "title": "Boston, MA",
-      "zoom": "13",
-      "file": "bos",
-      "longitude": "-71.06",
-      "latitude": "42.36"
-    },
-    "aus": {
-      "title": "Austin, TX",
-      "zoom": "11",
-      "file": "aus",
-      "longitude": "-97.81",
-      "latitude": "30.2672"
-    },
-    "sfo": {
-      "title": "Palo Alto, CA",
-      "zoom": "13",
-      "file": "sfo",
-      "longitude": "-122.165",
-      "latitude": "37.46"
-    },
-    "cdg": {
-      "title": "Paris, France",
-      "zoom": "13",
-      "file": "cdg",
-      "longitude": "2.31",
-      "latitude": "48.86"
     }
   }
 }

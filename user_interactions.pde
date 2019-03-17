@@ -137,9 +137,13 @@ void keyPressed() {
 
         String edit = get_field();
         
-        if (edit.length() > 0) {
+        if (edit.length() > 1) {
 
           set_field(edit.substring(0, edit.length()-1));
+
+        } else {
+
+          set_field("");
 
         }
 
@@ -214,14 +218,16 @@ void keyPressed() {
      if (state.equals("map_views")) {
 
       update_step();
-      map.zoomAndPanTo(new Location(view.getFloat("latitude"), view.getFloat("longitude")), view.getInt("zoom"));
       state = "map";
       mode = "nav";
+      frame.setSize(config_values.getJSONObject("user_settings").getJSONObject("dimensions").getInt("width"), config_values.getJSONObject("user_settings").getJSONObject("dimensions").getInt("height"));
+      map.zoomAndPanTo(new Location(view.getFloat("latitude"), view.getFloat("longitude")), view.getInt("zoom"));
 
     } else if (state.equals("map")) {
 
       state = "map_views";
       mode = "nav";
+      frame.setSize(config_settings.getJSONObject("dimensions").getInt("width"), config_settings.getJSONObject("dimensions").getInt("height"));
 
     }
 
@@ -232,18 +238,9 @@ void keyPressed() {
       if (mode.equals("edit")) {
 
         String edit = get_field();
+        set_field(edit + key);
 
-          if (type_lookup[view_index].equals("string") || type_lookup[view_index].equals("boolean")) {
-          
-            set_field(edit + key);
-
-          } else if (key == '0' || key == '1' || key == '2' || key == '3' || key == '4' || key == '5' || key == '6' || key == '7' || key == '8' || key == '9') {
-
-            set_field(edit + key);
-
-          }
-
-      } 
+      }
 
     }
 

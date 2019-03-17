@@ -19,6 +19,8 @@ UnfoldingMap map;
 
 void setup() {
 
+  frame.setResizable(true);
+
   config_forms = loadJSONObject("data/config/forms.json");
   config_values = loadJSONObject("data/config/values.json");
   config_settings = loadJSONObject("data/config/settings.json");
