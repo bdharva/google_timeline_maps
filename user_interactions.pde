@@ -7,7 +7,7 @@ void keyPressed() {
       if (mode.equals("nav")) {
     
         view_index = view_index > 0 ? view_index - 1 : config_values.getJSONObject(state).size() - 1;
-        view = get_view_values(config_values.getJSONObject(state), view_index);
+        view = get_view_values();
 
       } else if (mode.equals("edit")) {
 
@@ -26,6 +26,7 @@ void keyPressed() {
       view.setString("longitude", str(view.getFloat("longitude") - step));
       update_step();
       map.zoomAndPanTo(new Location(view.getFloat("latitude"), view.getFloat("longitude")), view.getInt("zoom"));
+      saveJSONObject(config_values, "data/config/values.json");
       
     }
 
@@ -36,7 +37,7 @@ void keyPressed() {
       if (mode.equals("nav")) {
     
         view_index = view_index < (config_values.getJSONObject(state).size() - 1) ? view_index + 1 : 0;
-        view = get_view_values(config_values.getJSONObject(state), view_index);
+        view = get_view_values();
 
       } else if (mode.equals("edit")) {
 
@@ -55,6 +56,7 @@ void keyPressed() {
       view.setString("longitude", str(view.getFloat("longitude") + step));
       update_step();
       map.zoomAndPanTo(new Location(view.getFloat("latitude"), view.getFloat("longitude")), view.getInt("zoom"));
+      saveJSONObject(config_values, "data/config/values.json");
 
     }
 
@@ -65,6 +67,7 @@ void keyPressed() {
       view.setString("latitude", str(view.getFloat("latitude") + step));
       update_step();
       map.zoomAndPanTo(new Location(view.getFloat("latitude"), view.getFloat("longitude")), view.getInt("zoom"));
+      saveJSONObject(config_values, "data/config/values.json");
 
     }
 
@@ -75,6 +78,7 @@ void keyPressed() {
       view.setString("latitude", str(view.getFloat("latitude") - step));
       update_step();
       map.zoomAndPanTo(new Location(view.getFloat("latitude"), view.getFloat("longitude")), view.getInt("zoom"));
+      saveJSONObject(config_values, "data/config/values.json");
       
     }
 
@@ -85,6 +89,7 @@ void keyPressed() {
       view.setString("zoom", str(view.getInt("zoom") - 1));
       update_step();
       map.zoomAndPanTo(new Location(view.getFloat("latitude"), view.getFloat("longitude")), view.getInt("zoom"));
+      saveJSONObject(config_values, "data/config/values.json");
       
     }
 
@@ -95,6 +100,7 @@ void keyPressed() {
       view.setString("zoom", str(view.getInt("zoom") + 1));
       update_step();
       map.zoomAndPanTo(new Location(view.getFloat("latitude"), view.getFloat("longitude")), view.getInt("zoom"));
+      saveJSONObject(config_values, "data/config/values.json");
       
     }
 
@@ -116,7 +122,7 @@ void keyPressed() {
       } else if (mode.equals("edit")) {
 
         implement_user_settings();
-        //saveJSONObject(config, "data/config/values.json");
+        saveJSONObject(config_values, "data/config/values.json");
         mode = "nav";
 
       } 
@@ -143,52 +149,52 @@ void keyPressed() {
 
   } else if (keyCode == DELETE) {
 
-    // JSONObject field = settings.getJSONObject(view_index).getJSONArray("fields").getJSONObject(field_index);
-    // field.setString("value", "");
+    set_field("");
 
   } else if ((key == 'D' || key == 'd') && state.equals("map_views")) {
 
-    // if (views.size() > 1) {
-
-    //   views.remove(view_index);
-    //   view_index = view_index < (views.size() - 1) ? view_index : view_index - 1;
-
-    // } else {
-
-    //   add_view();
-    //   views.remove(view_index);
-
-    // }
-
-    //   view = get_view_values(views, view_index);
-    //   map.zoomAndPanTo(new Location(view.getFloat("latitude"), view.getFloat("longitude")), view.getInt("zoom"));
-    //   saveJSONObject(config, "data/config/test.json");
+    remove_view();
+    view_index = view_index < config_values.getJSONObject(state).size() - 1 ? view_index : config_values.getJSONObject(state).size() - 1;
+    view = get_view_values();
+    map.zoomAndPanTo(new Location(view.getFloat("latitude"), view.getFloat("longitude")), view.getInt("zoom"));
+    saveJSONObject(config_values, "data/config/values.json");
 
   } else if ((key == 'N' || key == 'n') && state.equals("map_views")) {
 
-    // add_view();
-    // view_index = views.size() - 1;
-    // view = get_view_values(views, view_index);
-    // map.zoomAndPanTo(new Location(view.getFloat("latitude"), view.getFloat("longitude")), view.getInt("zoom"));
-    // mode = "edit";
+    add_view();
+    view_index = view_index < (config_values.getJSONObject(state).size() - 1) ? view_index + 1 : 0;
+    view = get_view_values();
+
+    while (!view.getString("title").equals("My New View")){
+
+      view_index = view_index < (config_values.getJSONObject(state).size() - 1) ? view_index + 1 : 0;
+      view = get_view_values();
+
+    }
+
+    map.zoomAndPanTo(new Location(view.getFloat("latitude"), view.getFloat("longitude")), view.getInt("zoom"));
+    mode = "edit";
+    saveJSONObject(config_values, "data/config/values.json");
 
   } else if (((key == 'S' || key == 's')) && state.equals("map_views") && mode.equals("nav")) {
 
     view_index = 0;
     state = "user_settings";
-    view = get_view_values(config_values.getJSONObject(state), view_index);
+    view = get_view_values();
 
   } else if (((key == 'P' || key == 'p')) && (state.equals("map") || state.equals("plot"))) {
 
     if (state.equals("map")) {
 
       state = "plot";
-      noLoop();
-      draw_data();
+      show_guides = false;
+      plot_flag = true;
 
     } else if (state.equals("plot")) {
 
       state = "map";
+      show_guides = true;
+      plot_flag = false;
       loop();
 
     }
@@ -197,9 +203,9 @@ void keyPressed() {
 
     view_index = 0;
     state = "map_views";
-    view = get_view_values(config_values.getJSONObject(state), view_index);
+    view = get_view_values();
 
-  } else if (((key == 'G' || key == 'g')) && mode.equals("nav")) {
+  } else if (((key == 'G' || key == 'g')) && (mode.equals("nav") || state.equals("map"))) {
 
     show_guides = !show_guides;
 

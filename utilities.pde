@@ -12,6 +12,8 @@ void implement_settings() {
   size(1200, 800, P2D);
   bodyFont = createFont("data/fonts/Inter-UI-Regular.ttf", 16, true);
   guideFont = createFont("data/fonts/Inter-UI-Medium.ttf", 14, true);
+  titleFont = createFont("data/fonts/Inter-UI-Medium.ttf", 24, true);
+  subtitleFont = createFont("data/fonts/Inter-UI-Regular.ttf", 16, true);
   // TODO: Handle dimensions & text sizes
   extension = s.getJSONObject("export").getString("extension");
   button = int(s.getJSONObject("form_guide").getString("size"));
@@ -79,19 +81,6 @@ color extract_color (JSONObject c) {
   
 }
 
-//void initialize_markers (JSONArray d, SimplePointMarker[] p) {
-//
-//  for (int i = 0; i < data.size(); i++) {
-//    
-//    JSONObject this_location = d.getJSONObject(i);
-//    float this_latitude = this_location.getInt("latitudeE7") / 1E7;
-//    float this_longitude = this_location.getInt("latitudeE7") / 1E7;
-//    p[i] = new SimplePointMarker(new Location(this_latitude, this_longitude));
-//  
-//  }
-//
-//}
-
 void initialize_markers (Table d, SimplePointMarker[] p) {
 
   for (int i = 0; i < data.getRowCount(); i++) {
@@ -111,10 +100,23 @@ void update_step () {
 
 }
 
-JSONObject get_view_values(JSONObject v, int i) {
+JSONObject get_view_values() {
   
-  String[] properties = list_keys(v);
-  return v.getJSONObject(properties[i]);
+  String[] properties = list_keys(config_values.getJSONObject(state));
+  if (properties.length == 0) {
+    add_view();
+    properties = list_keys(config_values.getJSONObject(state));
+  }
+  return config_values.getJSONObject(state).getJSONObject(properties[view_index]);
+  
+}
+
+void remove_view() {
+  
+  String[] properties = list_keys(config_values.getJSONObject(state));
+  if (properties.length > 1) {
+    config_values.getJSONObject(state).remove(properties[view_index]);
+  }
   
 }
 
@@ -132,15 +134,29 @@ void set_field(String s) {
 
 }
 
-// TODO: Need to fix for new format
-//void add_view() {
-//  
-//  JSONObject new_view = new JSONObject();
-//  new_view.setString("label", "My New View");
-//  new_view.setString("lat", "37");
-//  new_view.setString("lng", "-95");
-//  new_view.setString("zoom", "4");
-//  new_view.setString("file", "mynewview");
-//  views.append(new_view);
-//
-//}
+String pretty_string(String s) {
+
+  String[] fragments = split(s, '_');
+  for (int i = 0; i < fragments.length; i++) {
+
+    fragments[i] = Character.toUpperCase(fragments[i].charAt(0)) + fragments[i].substring(1);
+
+  }
+
+  return join(fragments, ' ');
+
+}
+
+void add_view() {
+
+  String id = String.valueOf(year()) + String.valueOf(month()) + String.valueOf(day()) + String.valueOf(hour()) + String.valueOf(minute()) + String.valueOf(second());
+  JSONObject new_view = new JSONObject();
+  new_view.setString("title", "My New View");
+  new_view.setString("latitude", "40.74");
+  new_view.setString("longitude", "-73.99");
+  new_view.setString("zoom", "13");
+  new_view.setString("file", "mynewview");
+  JSONObject views = config_values.getJSONObject(state);
+  views.setJSONObject(id, new_view);
+
+}

@@ -5,12 +5,12 @@ import de.fhpotsdam.unfolding.utils.*;
 import de.fhpotsdam.unfolding.providers.*;
 import de.fhpotsdam.unfolding.marker.*;
 
-boolean show_guides;
+boolean plot_flag, show_guides;
 color c_connector, c_form_background, c_form_active_text, c_form_text, c_form_guide, c_form_highlight, c_map_guide, c_point, c_tint, c_title, c_subtitle;
 int button, connector_weight, cursor_height, cursor_offset, cursor_width, field_index, margin, padding, point_diameter, view_index;
 JSONObject config_forms, config_settings, config_values, view;
 float step;
-PFont bodyFont, guideFont;
+PFont bodyFont, guideFont, titleFont, subtitleFont;
 SimplePointMarker[] points;
 String extension, mode, state, target, view_lookup;
 String[] editable_lookup, field_lookup, type_lookup;
@@ -26,7 +26,7 @@ void setup() {
   implement_user_settings();
   
   map = new UnfoldingMap(this, new Microsoft.AerialProvider());
-  view = get_view_values(config_values.getJSONObject(state), view_index);
+  view = get_view_values();
   update_step();
 
   map.zoomAndPanTo(new Location(view.getFloat("latitude"), view.getFloat("longitude")), view.getInt("zoom"));
@@ -39,6 +39,12 @@ void setup() {
 
 void draw() {
 
-  render_ui(state, mode);
+  if (plot_flag) {
+    noLoop();
+    draw_data();
+    save("exports/" + year() + "-" + month() + "-" + day() + "-" + view.getString("file") + config_settings.getJSONObject("export").getString("extension"));
+  } else {
+    render_ui();
+  }
   
 }

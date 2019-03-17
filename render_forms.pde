@@ -1,38 +1,33 @@
-void render_ui(String s, String m) {
+void render_ui() {
   
-  if (s.equals("map_views") || s.equals("user_settings")) {
+  if (state.equals("map_views") || state.equals("user_settings")) {
     
     background(c_form_background);
     fill(c_form_active_text);
     textFont(guideFont);
     textAlign(RIGHT, TOP);
-    // TODO: Prettify state
-    text(s + " " + str(view_index + 1) + " of " + str(config_values.getJSONObject(s).size()), width - margin, margin);
+    text(pretty_string(state) + " (" + str(view_index + 1) + " of " + str(config_values.getJSONObject(state).size()) + ")", width - margin, margin);
     
-    JSONObject fields = config_forms.getJSONObject(s).getJSONObject("fields");
-    JSONArray order = config_forms.getJSONObject(s).getJSONArray("field_order");
+    JSONObject fields = config_forms.getJSONObject(state).getJSONObject("fields");
+    JSONArray order = config_forms.getJSONObject(state).getJSONArray("field_order");
     String properties = join(list_keys(view), " "); 
-    render_fields(fields, order, view, properties, m);
+    render_fields(fields, order, view, properties);
     
-  } else if (s.equals("map")) {
+  } else if (state.equals("map")) {
     
     draw_map();
-    
-  } else if (s.equals("data")) {
-    
-    //draw_data_ingestion();
     
   }
   
   if (show_guides) {
     
-    render_guides(s, m);
+    render_guides();
     
   }
   
 }
 
-void render_fields(JSONObject f, JSONArray o, JSONObject v, String p, String m) {
+void render_fields(JSONObject f, JSONArray o, JSONObject v, String p) {
 
   int j = 0;
   field_lookup = new String[0];
@@ -51,7 +46,7 @@ void render_fields(JSONObject f, JSONArray o, JSONObject v, String p, String m) 
       String is_editable = field.getString("editable");
       editable_lookup = append(editable_lookup, is_editable);
       String value = v.getString(property);
-      render_field(field, value, j, 2, m);
+      render_field(field, value, j, 2);
       j++;
 
     }
@@ -60,7 +55,7 @@ void render_fields(JSONObject f, JSONArray o, JSONObject v, String p, String m) 
 
 }
 
-void render_field(JSONObject f, String v, int i, int c, String m) {
+void render_field(JSONObject f, String v, int i, int c) {
   
   int row = i == 0 ? 0 : floor((i + c - 1) / c);
   int col = i == 0 ? 0 : (i + c - 1) % c;
@@ -73,7 +68,7 @@ void render_field(JSONObject f, String v, int i, int c, String m) {
   textFont(bodyFont);
   textAlign(LEFT, CENTER);
 
-  if (m.equals("edit") && field_index == i) {
+  if (mode.equals("edit") && field_index == i) {
     
     fill(c_form_highlight);
     
@@ -92,7 +87,7 @@ void render_field(JSONObject f, String v, int i, int c, String m) {
     
   }
   
-  if ((m.equals("edit") && field_index == i) || mode.equals("nav") || !f.getBoolean("editable")) {
+  if ((mode.equals("edit") && field_index == i) || mode.equals("nav") || !f.getBoolean("editable")) {
     
     fill(c_form_active_text);
     
@@ -126,9 +121,9 @@ void render_field(JSONObject f, String v, int i, int c, String m) {
   
 }
 
-void render_guides(String s, String m) {
+void render_guides() {
 
-  JSONArray guides = config_forms.getJSONObject(s).getJSONObject("guides").getJSONArray(m);
+  JSONArray guides = config_forms.getJSONObject(state).getJSONObject("guides").getJSONArray(mode);
 
   for (int i = 0; i < guides.size(); i++) {
     
@@ -182,24 +177,4 @@ void render_guide(JSONObject h, int i, int c, int n) {
   textAlign(LEFT, CENTER);
   text(h.getString("text"), x_1, y_0 + button / 2 - 2);
 
-}
-
-void draw_data_ingestion() {
-  
-  background(c_form_background);
-  File f = dataFile("google/Location History.json");
-  fill(100,100,100);
-  textFont(bodyFont);
-  textAlign(CENTER, CENTER);
-  
-  if (f.isFile()) {
-    
-    text(f.getPath() + " exists", width / 2, 40);
-    
-  } else {
-    
-    text(f.getPath() + " does not exist", width / 2, 40);
-    
-  }
-  
 }

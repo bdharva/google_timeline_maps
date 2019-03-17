@@ -8,6 +8,7 @@ void draw_map() {
 void draw_data() {
   draw_lines();
   draw_points();
+  draw_labels();
 }
 
 void draw_lines() {
@@ -52,4 +53,44 @@ void draw_points() {
 
   }
 
+}
+
+void draw_labels() {
+  
+  fill(c_title);
+  noStroke();
+  textFont(titleFont);
+  textAlign(RIGHT, BOTTOM);
+  
+  text(view.getString("title"), width - margin, height - 1.5 * margin);
+  
+  fill(c_subtitle);
+  textFont(subtitleFont);
+  
+  if(view.getFloat("latitude") > 0) {
+    
+    if(view.getFloat("longitude") > 0) {
+      
+      text(nf(view.getFloat("latitude"), 0, 2) + "° N, " + nf(view.getFloat("longitude"), 0, 2) + "° E", width - margin, height - margin);
+      
+    } else {
+      
+      text(nf(view.getFloat("latitude"), 0, 2) + "° N, " + nf(view.getFloat("longitude"), 0, 2) + "° W", width - margin, height - margin);
+      
+    }
+    
+  } else {
+    
+    if(view.getFloat("longitude") > 0) {
+      
+      text(nf(view.getFloat("latitude"), 0, 2) + "° S, " + nf(view.getFloat("longitude"), 0, 2) + "° E", width - margin, height - margin);
+      
+    } else {
+      
+      text(nf(view.getFloat("latitude"), 0, 2) + "° S, " + nf(view.getFloat("longitude"), 0, 2) + "° W", width - margin, height - margin);
+      
+    }
+    
+  }
+  
 }
