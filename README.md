@@ -1,13 +1,5 @@
 # google_timeline_maps
-Mapping Google Timeline data with Processing 2 & the Unfolding library
-
-_*INCOMPLETE: PUSHED TO START TO PREVIEW HOW THINGS LOOK.*_
-
-TODO:
-
--	Save configs
--	Handle text and dimensions
--	Finish README.md
+_Mapping Google Timeline data with Processing 2 & the Unfolding library_
 
 While this started out as a very hacky personal project to map my own data, once I shared [some of my visualizations](https://www.instagram.com/p/Bsl9pEoH_rf/) I started getting requests from friends wanting to make their own. While it's still hacky, this is a rough first pass at streamlining my workflow for more general use. I've listed a few ideas for future development at the bottom of this page. Feel free to use [https://github.com/bdharva/google_timeline_maps/issues](https://github.com/bdharva/google_timeline_maps/issues) to suggest additional updates and flag any bugs you encounter.
 
@@ -47,7 +39,7 @@ In Terminal, navigate to the same directory where you've just saved your locatio
 
 ### Launch the sketch
 
-Open the `google_timeline_maps.pde` sketch in Processing 2 and launch the sketch with `cmd + r` or by pressing the play icon in the user interface. Depending on the size of the timeline dataset you're loading, it might take a few seconds for the interface to load once you run the sketch.
+Open the `google_timeline_maps.pde` sketch in Processing 2 and launch the sketch with `cmd + r` or by pressing the play icon in the user interface. Depending on the size of the timeline dataset you're loading, it might take a little while for the interface to load once you run the sketch.
 
 ### Theory of operation
 
