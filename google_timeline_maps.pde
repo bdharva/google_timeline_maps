@@ -10,7 +10,7 @@ color c_connector, c_form_background, c_form_active_text, c_form_text, c_form_gu
 int button, connector_weight, cursor_height, cursor_offset, cursor_width, field_index, margin, padding, point_diameter, view_index;
 JSONObject config_forms, config_settings, config_values, view;
 float step;
-PFont bodyFont, guideFont, titleFont, subtitleFont;
+PFont body_font, guide_font, title_font, subtitle_font;
 SimplePointMarker[] points;
 String extension, mode, state, target, view_lookup;
 String[] editable_lookup, field_lookup, type_lookup;

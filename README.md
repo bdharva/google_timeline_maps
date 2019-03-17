@@ -5,7 +5,6 @@ _*INCOMPLETE: PUSHED TO START TO PREVIEW HOW THINGS LOOK.*_
 
 TODO:
 
--	Save graphics
 -	Save configs
 -	Handle text and dimensions
 -	Finish README.md
@@ -62,7 +61,8 @@ TODO: Short overview of settings, creating views, navigating map, plotting data,
 
 ### Known "Papercuts"
 
-*	Can't show/hide guides while plotting data; have to un-plot, hide, and re-plot to export clean graphic without guides on it
+*	Lack of proper data validation on form inputs; lack of error handling for errors that this can introduce
+*	Can't show/hide guides while plotting data; have to un-plot, hide guides, and re-plot to export clean graphic
 *	New views are created in a bullshit random order
 
 ### Planned Features/Improvements

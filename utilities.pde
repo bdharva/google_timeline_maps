@@ -10,11 +10,17 @@ void implement_settings() {
   c_map_guide = extract_color(s.getJSONObject("map_guide"));
   
   size(1200, 800, P2D);
-  bodyFont = createFont("data/fonts/Inter-UI-Regular.ttf", 16, true);
-  guideFont = createFont("data/fonts/Inter-UI-Medium.ttf", 14, true);
-  titleFont = createFont("data/fonts/Inter-UI-Medium.ttf", 24, true);
-  subtitleFont = createFont("data/fonts/Inter-UI-Regular.ttf", 16, true);
-  // TODO: Handle dimensions & text sizes
+
+  JSONObject f = s.getJSONObject("title_font");
+  title_font = createFont(f.getString("name"), f.getInt("size"), boolean(f.getString("smooth")));
+  f = s.getJSONObject("subtitle_font");
+  subtitle_font = createFont(f.getString("name"), f.getInt("size"), boolean(f.getString("smooth")));
+  f = s.getJSONObject("body_font");
+  body_font = createFont(f.getString("name"), f.getInt("size"), boolean(f.getString("smooth")));
+  f = s.getJSONObject("guide_font");
+  guide_font = createFont(f.getString("name"), f.getInt("size"), boolean(f.getString("smooth")));
+
+  // TODO: Handle dimensions
   extension = s.getJSONObject("export").getString("extension");
   button = int(s.getJSONObject("form_guide").getString("size"));
   cursor_offset = int(s.getJSONObject("form_cursor").getString("offset"));

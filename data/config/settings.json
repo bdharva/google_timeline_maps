@@ -74,5 +74,25 @@
 		"view": "0",
 		"field": "0",
 		"rate": "60"
+	},
+	"title_font": {
+		"name": "data/fonts/Inter-UI-Medium.ttf",
+		"size": "24",
+		"smooth": ""
+	},
+	"subtitle_font": {
+		"name": "data/fonts/Inter-UI-Regular.ttf",
+		"size": "16",
+		"smooth": "true"
+	},
+	"body_font": {
+		"name": "data/fonts/Inter-UI-Regular.ttf",
+		"size": "16",
+		"smooth": "true"
+	},
+	"guide_font": {
+		"name": "data/fonts/Inter-UI-Medium.ttf",
+		"size": "14",
+		"smooth": "true"
 	}
 }

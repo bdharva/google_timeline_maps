@@ -59,13 +59,13 @@ void draw_labels() {
   
   fill(c_title);
   noStroke();
-  textFont(titleFont);
+  textFont(title_font);
   textAlign(RIGHT, BOTTOM);
   
   text(view.getString("title"), width - margin, height - 1.5 * margin);
   
   fill(c_subtitle);
-  textFont(subtitleFont);
+  textFont(subtitle_font);
   
   if(view.getFloat("latitude") > 0) {
     

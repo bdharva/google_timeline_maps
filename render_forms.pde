@@ -4,7 +4,7 @@ void render_ui() {
     
     background(c_form_background);
     fill(c_form_active_text);
-    textFont(guideFont);
+    textFont(guide_font);
     textAlign(RIGHT, TOP);
     text(pretty_string(state) + " (" + str(view_index + 1) + " of " + str(config_values.getJSONObject(state).size()) + ")", width - margin, margin);
     
@@ -65,7 +65,7 @@ void render_field(JSONObject f, String v, int i, int c) {
   float y_0 = 3 * margin / 2 + row * offset_y;
   float x_1 = i == 0 ? width - margin : x_0 + column_x;
 
-  textFont(bodyFont);
+  textFont(body_font);
   textAlign(LEFT, CENTER);
 
   if (mode.equals("edit") && field_index == i) {
@@ -171,7 +171,7 @@ void render_guide(JSONObject h, int i, int c, int n) {
     
   }
   
-  textFont(guideFont);
+  textFont(guide_font);
   textAlign(CENTER, CENTER);
   text(h.getString("icon"), x_0 + button / 2, y_0 + button / 2 - 2);
   textAlign(LEFT, CENTER);
