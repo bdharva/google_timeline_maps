@@ -26,7 +26,7 @@
     },
     "subtitle": {
       "enabled": "true",
-      "title": "Map Subtitle Overlay",
+      "title": "Map Sub-Title Overlay",
       "red": "255",
       "blue": "255",
       "green": "255",
@@ -49,8 +49,8 @@
   },
   "map_views": {"2019317172210": {
     "title": "My New View",
-    "file": "mynewview",
     "zoom": "13",
+    "file": "mynewview",
     "longitude": "-73.99",
     "latitude": "40.74"
   }}
