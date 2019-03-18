@@ -20,8 +20,8 @@ UnfoldingMap map;
 void setup() {
 
   frame.setResizable(true);
-
-  if (dataFile("data/config/reference.json").isFile()) {
+   
+  if (new File(sketchPath("data/config/reference.json")).isFile()) {
     
     config_values = loadJSONObject("data/config/reference.json");
     
