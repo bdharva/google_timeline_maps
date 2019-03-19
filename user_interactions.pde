@@ -26,7 +26,16 @@ void keyPressed() {
       view.setString("longitude", str(view.getFloat("longitude") - step));
       update_step();
       map.zoomAndPanTo(new Location(view.getFloat("latitude"), view.getFloat("longitude")), view.getInt("zoom"));
-      saveJSONObject(config_values, "data/config/values.json");
+      
+      if (new File(sketchPath("data/config/reference.json")).isFile()) {
+    
+        saveJSONObject(config_values, "data/config/reference.json");
+        
+      } else {
+        
+        saveJSONObject(config_values, "data/config/values.json");
+        
+      }
       
     }
 
@@ -56,7 +65,16 @@ void keyPressed() {
       view.setString("longitude", str(view.getFloat("longitude") + step));
       update_step();
       map.zoomAndPanTo(new Location(view.getFloat("latitude"), view.getFloat("longitude")), view.getInt("zoom"));
-      saveJSONObject(config_values, "data/config/values.json");
+      
+      if (new File(sketchPath("data/config/reference.json")).isFile()) {
+    
+        saveJSONObject(config_values, "data/config/reference.json");
+        
+      } else {
+        
+        saveJSONObject(config_values, "data/config/values.json");
+        
+      }
 
     }
 
@@ -67,7 +85,16 @@ void keyPressed() {
       view.setString("latitude", str(view.getFloat("latitude") + step));
       update_step();
       map.zoomAndPanTo(new Location(view.getFloat("latitude"), view.getFloat("longitude")), view.getInt("zoom"));
-      saveJSONObject(config_values, "data/config/values.json");
+      
+      if (new File(sketchPath("data/config/reference.json")).isFile()) {
+    
+        saveJSONObject(config_values, "data/config/reference.json");
+        
+      } else {
+        
+        saveJSONObject(config_values, "data/config/values.json");
+        
+      }
 
     }
 
@@ -78,7 +105,16 @@ void keyPressed() {
       view.setString("latitude", str(view.getFloat("latitude") - step));
       update_step();
       map.zoomAndPanTo(new Location(view.getFloat("latitude"), view.getFloat("longitude")), view.getInt("zoom"));
-      saveJSONObject(config_values, "data/config/values.json");
+      
+      if (new File(sketchPath("data/config/reference.json")).isFile()) {
+    
+        saveJSONObject(config_values, "data/config/reference.json");
+        
+      } else {
+        
+        saveJSONObject(config_values, "data/config/values.json");
+        
+      }
       
     }
 
@@ -89,7 +125,16 @@ void keyPressed() {
       view.setString("zoom", str(view.getInt("zoom") - 1));
       update_step();
       map.zoomAndPanTo(new Location(view.getFloat("latitude"), view.getFloat("longitude")), view.getInt("zoom"));
-      saveJSONObject(config_values, "data/config/values.json");
+      
+      if (new File(sketchPath("data/config/reference.json")).isFile()) {
+    
+        saveJSONObject(config_values, "data/config/reference.json");
+        
+      } else {
+        
+        saveJSONObject(config_values, "data/config/values.json");
+        
+      }
       
     }
 
@@ -100,7 +145,16 @@ void keyPressed() {
       view.setString("zoom", str(view.getInt("zoom") + 1));
       update_step();
       map.zoomAndPanTo(new Location(view.getFloat("latitude"), view.getFloat("longitude")), view.getInt("zoom"));
-      saveJSONObject(config_values, "data/config/values.json");
+      
+      if (new File(sketchPath("data/config/reference.json")).isFile()) {
+    
+        saveJSONObject(config_values, "data/config/reference.json");
+        
+      } else {
+        
+        saveJSONObject(config_values, "data/config/values.json");
+        
+      }
       
     }
 
@@ -122,7 +176,17 @@ void keyPressed() {
       } else if (mode.equals("edit")) {
 
         implement_user_settings();
-        saveJSONObject(config_values, "data/config/values.json");
+        
+        if (new File(sketchPath("data/config/reference.json")).isFile()) {
+    
+          saveJSONObject(config_values, "data/config/reference.json");
+          
+        } else {
+          
+          saveJSONObject(config_values, "data/config/values.json");
+          
+        }
+        
         mode = "nav";
 
       } 
@@ -161,7 +225,16 @@ void keyPressed() {
     view_index = view_index < config_values.getJSONObject(state).size() - 1 ? view_index : config_values.getJSONObject(state).size() - 1;
     view = get_view_values();
     map.zoomAndPanTo(new Location(view.getFloat("latitude"), view.getFloat("longitude")), view.getInt("zoom"));
-    saveJSONObject(config_values, "data/config/values.json");
+    
+    if (new File(sketchPath("data/config/reference.json")).isFile()) {
+    
+      saveJSONObject(config_values, "data/config/reference.json");
+      
+    } else {
+      
+      saveJSONObject(config_values, "data/config/values.json");
+      
+    }
 
   } else if ((key == 'N' || key == 'n') && state.equals("map_views") && mode.equals("nav")) {
 
@@ -178,7 +251,16 @@ void keyPressed() {
 
     map.zoomAndPanTo(new Location(view.getFloat("latitude"), view.getFloat("longitude")), view.getInt("zoom"));
     mode = "edit";
-    saveJSONObject(config_values, "data/config/values.json");
+    
+    if (new File(sketchPath("data/config/reference.json")).isFile()) {
+    
+      saveJSONObject(config_values, "data/config/reference.json");
+      
+    } else {
+      
+      saveJSONObject(config_values, "data/config/values.json");
+      
+    }
 
   } else if (((key == 'S' || key == 's')) && state.equals("map_views") && mode.equals("nav")) {
 
