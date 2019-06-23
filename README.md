@@ -43,8 +43,6 @@ Open the `google_timeline_maps.pde` sketch in Processing 2 and launch the sketch
 
 ### Theory of operation
 
-TODO: Short overview of settings, creating views, navigating map, plotting data, and exporting. All of this should be straightforward enough to figure out using the on-screen guides, so keep it brief.
-
 When the sketch finishes launching, you'll start out on the "views" interface. Views can be defined with latitude and longitude, zoom level, the title you'd like to display on exports, and the preferred file name for those exports. The guides at the bottom of the page will help you to configure some views and change interfaces.
 
 ![Sample visualization](data/assets/views.png?raw=true)
