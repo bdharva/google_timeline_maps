@@ -45,6 +45,22 @@ Open the `google_timeline_maps.pde` sketch in Processing 2 and launch the sketch
 
 TODO: Short overview of settings, creating views, navigating map, plotting data, and exporting. All of this should be straightforward enough to figure out using the on-screen guides, so keep it brief.
 
+When the sketch finishes launching, you'll start out on the "views" interface. Views can be defined with latitude and longitude, zoom level, the title you'd like to display on exports, and the preferred file name for those exports. The guides at the bottom of the page will help you to configure some views and change interfaces.
+
+![Sample visualization](data/assets/views.png?raw=true)
+
+Short of developing a longer list of presets or a more robust inerface (not working on either at the moment), I recommend that you start by Googling city coordinates and then fiddling around in the map/plot view to fine tune things -- more on that in a second.
+
+Pressing `S` will switch into the settings menu, where you can configure how you'd like your views to be rendered when mapping and plotting data. The annotated screenshot below lays out how these settings correspond with the output.
+
+![Sample visualization](data/assets/settings.png?raw=true)
+
+From the views interface, you can toggle to a map of the view with `M`. Here you can pan and zoom to get the view right, and the underlying settings for the view will be automatically updated and saved. Pressing `P` will toggle on and off a plotted view of the data overlaid on the map.
+
+Every time you plot the data, the view will be saved under the specified file name. Note that if the guides are displayed while plotting, they will be included in the export. I tend to leave them on while fine-tuning the view, and then hide them when I'm ready to plot my final export. It's also worth noting that, for now, the map cannot be panned or zoomed while data is plotted.
+
+Exports will be saved in `/exports` nested within the directory that you're running the sketch from. All files will be prefixed with the date, so multiple plots of a given view on a given day will overwrite one another unless you change the specified file name for the view.
+
 ## Development Notes
 
 ### Known Bugs
